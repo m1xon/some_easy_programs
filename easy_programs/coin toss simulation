@@ -1,0 +1,37 @@
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+void cash_throw(int &result) {
+    result = rand()%2;
+}
+
+void counter(int& result, int &eagle, int &tail) {
+    if (result == 1) {
+        eagle++; 
+        cout << "result: eagle" << endl;
+    }
+    else { 
+        tail++;
+        cout << "result: tail" << endl;
+    }
+}
+
+int main(){
+    int result, eagle = 0, tail = 0;
+    char ch = 0;
+    srand((unsigned)time(NULL));
+    while (ch != 27) {
+        cash_throw(result);
+        counter(result, eagle, tail);
+        cout << "total eagles: " << eagle << endl;
+        cout << "total tails: " << tail << endl;
+        cout << "continue - any button" << endl;
+        cout << "exit - esc" << endl;
+        ch = _getch();
+        system("cls");
+    }
+}
