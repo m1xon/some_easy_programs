@@ -1,0 +1,32 @@
+//The Collatz conjecture
+
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+void counter(int& num, int &count) {
+    while (num != 1) {
+        if (num % 2 == 0) num = num / 2;
+        else num = num * 3 + 1;
+        count += 1;
+    }
+}
+
+int main() {
+    int num, count = 0;
+    char ch = 0;
+    while (ch != 27) {
+        cout << "write number: ";
+        cin >> num;
+        cout << endl;
+        counter(num, count);
+        cout << "number of steps: " << count << endl;
+        cout << "continue - any button\nexit - esc" << endl;
+        count = 0;
+        ch = _getch();
+        system("cls");
+    }
+}
